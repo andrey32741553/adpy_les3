@@ -1,5 +1,5 @@
 from datetime import datetime as dt
-from adpy_les2.countrylinks_class import CountryLinks
+from countrylinks_class import CountryLinks
 import os
 
 if not os.path.isdir('C:\\logfiles'):
