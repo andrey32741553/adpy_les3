@@ -10,11 +10,11 @@ url = 'https://raw.githubusercontent.com/mledoze/countries/master/countries.json
 
 def path_for_saving(path):
     def logging(old_function):
-        def new_function(old_foo_name, *args):
+        def new_function(old_foo_name, *args, **kwargs):
             date_time = f'Дата и время создания: {dt.today()}'
             foo_name = f'Имя функции: {old_function.__name__}'
-            foo_arguments = f'Аргументы функции: {old_foo_name}, {args}'
-            old_foo_result = old_function(old_foo_name, *args)
+            foo_arguments = f'Аргументы функции: {old_foo_name}, {args}, {kwargs}'
+            old_foo_result = old_function(old_foo_name, *args, **kwargs)
             for line in old_foo_result:
                 print(line)
             with open(path, 'w', encoding='utf-8') as file:
@@ -32,9 +32,9 @@ def path_for_saving(path):
 
 
 @path_for_saving('C:\\logfiles\\logfile.txt')
-def decorating_function(old_foo_name, *args):
+def decorating_function(old_foo_name, *args, **kwargs):
     result_list = []
-    result = old_foo_name(*args)
+    result = old_foo_name(*args, **kwargs)
     for line in result:
         result_list.append(line)
     return result_list
