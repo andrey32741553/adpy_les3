@@ -13,7 +13,7 @@ def logging_decorator(path):
             date_time = f'Дата и время создания: {dt.today()}'
             foo_name = f'Имя функции создающей лог: {old_function.__name__}'
             old_func_name = f'Имя функции(класса), для которой создаётся лог: {extract_old_foo_name}'
-            foo_arguments = f'Аргументы функции:{args}, {kwargs}'
+            foo_arguments = f'Аргументы функции:{args}, {extract_old_foo_name}'
             old_foo_result = old_function(*args, **kwargs)
             for line in old_foo_result:
                 print(line)
